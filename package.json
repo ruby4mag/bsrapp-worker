@@ -1,0 +1,23 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "worker.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@react-awesome-query-builder/core": "^6.4.2",
+    "@types/amqplib": "^0.10.4",
+    "axios": "^1.6.7",
+    "bcryptjs": "^2.4.3",
+    "chatgpt": "^5.2.5",
+    "dotenv": "^16.4.1",
+    "json-logic-js": "^2.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.1.1"
+  }
+}
