@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-awesome-query-builder/core": "^6.4.2",
     "@types/amqplib": "^0.10.4",
+    "amqplib": "^0.10.3",
     "axios": "^1.6.7",
     "bcryptjs": "^2.4.3",
     "chatgpt": "^5.2.5",
