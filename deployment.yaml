@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bsr-worker-deployment
+spec:
+  selector:
+    matchLabels:
+      app: bsrapp-worker
+  replicas: 2 # tells deployment to run 3 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: bsrapp-worker
+    spec:
+      containers:
+      - name: bsrapp-worker
+        image: magingeorge/worker:JENKINS_BUILD_NUMBER
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: worker-env

@@ -9,12 +9,9 @@ import AdminRule from "./models/adminRuleModel.js"
 
 import { CoreConfig, Utils as QBUtils, TreeStore } from './node_modules/@react-awesome-query-builder/core/cjs/index.js';
 import jsonLogic from 'json-logic-js'
-//import { TreeState } from './node_modules/@react-awesome-query-builder/core/cjs/stores/tree.js';
-
 import axios from 'axios';
 
 
-const CONN_URL = 'amqp://localhost:5672';
 dotenv.config()
 connectDB()
 
@@ -190,7 +187,7 @@ const getKeywords = async (newActivity) => {
   return keywords
 }
 
-amqp.connect(CONN_URL, function (err, conn) {
+amqp.connect(process.env.CONN_URL, function (err, conn) {
   conn.createChannel(function (err, ch) {
     ch.consume('activities', async function (msg) {
       console.log('.....');
