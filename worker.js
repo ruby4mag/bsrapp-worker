@@ -3,6 +3,8 @@ import dotenv from "dotenv"
 import connectDB from "./config/db.js"
 import { ChatGPTAPI } from 'chatgpt'
 import User from "./models/userModel.js"
+import Quote from "./models/quoteModel.js"
+
 import Activity from "./models/activityModel.js"
 import Rule from "./models/ruleModel.js"
 import AdminRule from "./models/adminRuleModel.js"
@@ -273,7 +275,7 @@ amqp.connect(process.env.CONN_URL, function (err, conn) {
 
 
                 /// ChatGPT logic
-
+                /*
                 const api = new ChatGPTAPI({
                   apiKey: process.env.CHATGPT_KEY
                 })
@@ -322,6 +324,22 @@ amqp.connect(process.env.CONN_URL, function (err, conn) {
                       console.log(error);
                     });
                 }
+                */
+
+                // Get the random quote from DB 
+
+                res2.data.type
+
+                const count = await Quote.count()
+
+                // Get a random entry
+                var random = Math.floor(Math.random() * count)
+
+                // Again query all users but only fetch one offset by our random #
+                const quote = Quote.findOne().skip(random)
+                Payload['name'] = quote.quote
+                Payload['description'] = "Activity Named by https://BSRsport.org"
+
 
                 axios.put(`https://www.strava.com/api/v3/activities/${u.object_id}`, Payload, { headers })
                   .then(response => {
