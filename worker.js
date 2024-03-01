@@ -336,7 +336,7 @@ amqp.connect(process.env.CONN_URL, function (err, conn) {
                 var random = Math.floor(Math.random() * count)
 
                 // Again query all users but only fetch one offset by our random #
-                const quote = Quote.findOne().skip(random)
+                const quote = await Quote.findOne().skip(random)
                 Payload['name'] = quote.quote
                 Payload['description'] = "Activity Named by https://BSRsport.org"
 
