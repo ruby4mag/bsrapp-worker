@@ -334,7 +334,7 @@ amqp.connect(process.env.CONN_URL, function (err, conn) {
                 console.log(`Count is ${count}`)
                 // Get a   random entry
                 var random = Math.floor(Math.random() * count)
-
+                console.log(`Random is ${random}`)
                 // Again query all users but only fetch one offset by our random #
                 const quote = await Quote.findOne().skip(random)
                 console.log(`Quote is ${quote.quote}`)
