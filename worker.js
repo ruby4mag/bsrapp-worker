@@ -330,7 +330,7 @@ amqp.connect(process.env.CONN_URL, function (err, conn) {
 
                 res2.data.type
 
-                const count = await Quote.count()
+                const count = await Quote.countDocuments()
 
                 // Get a random entry
                 var random = Math.floor(Math.random() * count)
