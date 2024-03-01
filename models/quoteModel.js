@@ -22,6 +22,6 @@ const quoteSchema = mongoose.Schema(
 
 
 
-const AdminRule = mongoose.model("Quote", quoteSchema)
+const Quote = mongoose.model("Quote", quoteSchema)
 
-export default AdminRule
+export default Quote
