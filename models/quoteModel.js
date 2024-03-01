@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 const quoteSchema = mongoose.Schema(
     {
-        Type: {
+        type: {
             type: String,
             required: true,
         },

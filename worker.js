@@ -328,17 +328,18 @@ amqp.connect(process.env.CONN_URL, function (err, conn) {
 
                 // Get the random quote from DB 
 
-                res2.data.type
 
-                const count = await Quote.countDocuments()
+                const count = await Quote.countDocuments({ "type": res2.data.type })
                 console.log(`Count is ${count}`)
                 // Get a   random entry
                 var random = Math.floor(Math.random() * count)
                 console.log(`Random is ${random}`)
                 // Again query all users but only fetch one offset by our random #
-                const quote = await Quote.findOne().skip(random)
+                const quote = await Quote.findOne({ "type": res2.data.type }).skip(random)
                 console.log(`Quote is ${JSON.stringify(quote)}`)
-                Payload['name'] = quote.quote
+
+
+                Payload['name'] = quote.quote || "Today better than yesterday "
                 Payload['description'] = "Activity Named by https://BSRsport.org"
 
 
