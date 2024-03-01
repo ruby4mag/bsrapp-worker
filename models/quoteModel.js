@@ -7,9 +7,8 @@ const quoteSchema = mongoose.Schema(
             required: true,
         },
         quote: {
-            type: Boolean,
+            type: String,
             required: true,
-            default: true
         }
     },
     {
