@@ -327,7 +327,7 @@ amqp.connect(process.env.CONN_URL, function (err, conn) {
                 */
 
                 // Get the random quote from DB 
-
+                // New line
 
                 const count = await Quote.countDocuments({ "type": res2.data.type })
                 console.log(`Count is ${count}`)
