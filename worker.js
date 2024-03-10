@@ -341,7 +341,10 @@ amqp.connect(process.env.CONN_URL, function (err, conn) {
 
                 Payload['name'] = quote.quote || "Today better than yesterday "
                 Payload['description'] = "Activity Named by https://BSRsport.org"
-
+                // This is a hack for user Magin
+                if (res2.data.device_name == 'Garmin Forerunner 310XT') {
+                  Payload['hide_from_home'] = true
+                }
 
                 axios.put(`https://www.strava.com/api/v3/activities/${u.object_id}`, Payload, { headers })
                   .then(response => {
